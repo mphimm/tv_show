@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Read (ALL)</title>
+</head>
+<body>
+  <h1 class = "text-center mt-5 pb-5">All Shows!</h1>
+
+    <div class="container">
+    <table class="table table-sm">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Title</th>
+            <th scope="col">Network</th>
+            <th scope="col">Release Date</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for show in all_shows %}
+          <tr>
+            <td>{{show.id}}</td>
+            <td>{{show.title}}</td>
+            <td>{{show.network}}</td>
+            <td>{{show.release_date}}</td>
+            <td><a href="/info_page/{{show.id}}">View</a> l <a href="/edit/{{show.id}}">Edit</a> l <a href="{{show.id}}/destroy">Delete</a></td>
+          </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+
+      <a href="/">Add New Show!</a>
+    </div>
+</body>
+</html>
